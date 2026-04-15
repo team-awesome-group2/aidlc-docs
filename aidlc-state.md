@@ -4,7 +4,7 @@
 
 - **Project Type**: Brownfield
 - **Start Date**: 2026-04-15T00:00:00Z
-- **Current Stage**: INCEPTION - User Stories
+- **Current Stage**: INCEPTION - Units Generation
 
 ## Workspace State
 
@@ -46,8 +46,12 @@
 - [x] INCEPTION - Reverse Engineering
 - [x] INCEPTION - Requirements Analysis
 - [x] INCEPTION - User Stories
-- [ ] INCEPTION - Workflow Planning
-- [ ] INCEPTION - Application Design
-- [ ] INCEPTION - Units Generation
-- [ ] CONSTRUCTION - (per-unit stages)
-- [ ] CONSTRUCTION - Build and Test
+- [x] INCEPTION - Workflow Planning
+- [x] INCEPTION - Application Design (执行)
+- [x] INCEPTION - Units Generation (执行)
+- [ ] CONSTRUCTION - Functional Design (按单元执行)
+- [ ] CONSTRUCTION - NFR Requirements (按单元执行)
+- [ ] CONSTRUCTION - NFR Design (跳过)
+- [ ] CONSTRUCTION - Infrastructure Design (跳过)
+- [ ] CONSTRUCTION - Code Generation (按单元执行)
+- [ ] CONSTRUCTION - Build and Test (执行)
