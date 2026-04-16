@@ -191,3 +191,99 @@ Q11=A (启用PBT扩展)
 **上下文**: INCEPTION - 单元拆分阶段，补充内部接口契约文档
 
 ---
+
+## CONSTRUCTION - 功能设计 - 单元 2: unit-product
+
+**时间戳**: 2026-04-15T12:29:02Z
+**用户输入**: "组长又给我发送了这段分析，根据组长的分析更改部分设计：[组长的 category 字段改造影响分析，包括：新增 category 表、product 表 category VARCHAR 改为 category_id BIGINT、10 个 Java 文件影响、前端影响分析]"
+**AI响应**: 确认收到组长分析。核心变更：product 表 category 字符串字段改为 category_id 外键。确认数据库为空库（无 INSERT 语句、无 data.sql），迁移脚本可简化。
+**上下文**: CONSTRUCTION - 功能设计，单元 2 unit-product，用户选择按 AIDLC 流程先做功能设计
+
+---
+
+## CONSTRUCTION - 功能设计 - 单元 2: unit-product - 用户答案
+
+**时间戳**: 2026-04-15T12:42:32Z
+**用户输入**: "填写完成"
+**AI响应**: 读取答案文件，8 个问题全部已回答：Q1=B(3级分类), Q2=B(级联删除), Q3=A(categoryId不可空), Q4=A(仅SKU不可修改), Q5=B(内部重试1~3次), Q6=B(按近30天兑换量排行), Q7=A(下架拒绝扣减), Q8=A(父分类包含子分类商品)。无矛盾，无需澄清。开始生成功能设计产物。
+**上下文**: CONSTRUCTION - 功能设计，单元 2 unit-product，Step 5 答案分析通过
+
+---
+
+## CONSTRUCTION - 功能设计 - 单元 2: unit-product - 用户批准
+
+**时间戳**: 2026-04-15T12:49:25Z
+**用户输入**: "继续"
+**AI响应**: 功能设计已批准，进入 NFR Requirements 阶段。
+**上下文**: CONSTRUCTION - 功能设计完成，单元 2 unit-product
+
+---
+
+## CONSTRUCTION - NFR 需求 - 单元 2: unit-product - 计划创建
+
+**时间戳**: 2026-04-15T12:49:25Z
+**AI响应**: 创建 NFR 需求计划文件，包含 4 个问题：商品详情缓存策略、分类树缓存策略、测试数据库选择、API 响应时间目标。
+**上下文**: CONSTRUCTION - NFR 需求，单元 2 unit-product，Step 3-4
+
+---
+
+## CONSTRUCTION - NFR 需求 - 单元 2: unit-product - 用户答案
+
+**时间戳**: 2026-04-15T12:56:04Z
+**用户输入**: "填写完成"
+**AI响应**: 读取答案：Q1=B(商品详情Redis缓存TTL 30分钟), Q2=A(分类树Redis缓存TTL 1小时+变更清除), Q3=C(直连本地MySQL测试), Q4=B(查询<500ms, 库存扣减<1000ms)。无矛盾，开始生成NFR产物。
+**上下文**: CONSTRUCTION - NFR 需求，单元 2 unit-product，Step 5 答案分析通过
+
+---
+
+## CONSTRUCTION - NFR 需求 - 单元 2: unit-product - 用户批准
+
+**时间戳**: 2026-04-15T13:08:34Z
+**用户输入**: "继续"
+**AI响应**: NFR 需求已批准，进入 Code Generation 阶段。
+**上下文**: CONSTRUCTION - NFR 需求完成，单元 2 unit-product
+
+---
+
+## CONSTRUCTION - 代码生成 Part 1 - 单元 2: unit-product - 计划创建
+
+**时间戳**: 2026-04-15T13:08:34Z
+**AI响应**: 创建代码生成计划，共 18 个步骤：Flyway 迁移 → 错误码 → Category 领域模型 → ProductEntity 改造 → 仓储端口 → 缓存端口 → 领域服务 → 仓储实现 → 缓存实现 → 应用服务 → Controller → 内部接口 → 摘要文档。覆盖全部 9 个用户故事。等待用户批准。
+**上下文**: CONSTRUCTION - 代码生成 Part 1，单元 2 unit-product
+
+---
+
+## CONSTRUCTION - 代码生成 Part 1 - 单元 2: unit-product - 用户批准
+
+**时间戳**: 2026-04-15T13:13:43Z
+**用户输入**: "approved"
+**AI响应**: 代码生成计划已批准，开始执行 Part 2 代码生成。
+**上下文**: CONSTRUCTION - 代码生成 Part 1 批准，进入 Part 2
+
+---
+
+## CONSTRUCTION - 代码生成 - 单元 2: unit-product - 用户批准
+
+**时间戳**: 2026-04-15T13:25:11Z
+**用户输入**: "Go on next stage"
+**AI响应**: 代码生成已批准。单元 2 (Product Service) 的 Construction 阶段全部完成（功能设计 → NFR 需求 → 代码生成）。由于本项目有 6 个工作单元，Build & Test 阶段需要在所有单元完成后统一执行。当前单元 2 已完成，可以继续其他单元的开发。
+**上下文**: CONSTRUCTION - 代码生成完成，单元 2 unit-product
+
+---
+
+## CONSTRUCTION - 构建与测试 - 单元 2: unit-product
+
+**时间戳**: 2026-04-15T13:25:11Z
+**AI响应**: 生成构建与测试指令文件：build-instructions.md（构建步骤+启动命令）、unit-test-instructions.md（22个单元测试+6个PBT+14个集成测试场景）、integration-test-instructions.md（6个内部接口验证场景+curl命令）、build-and-test-summary.md（总结）。
+**上下文**: CONSTRUCTION - Build & Test，单元 2 unit-product
+
+---
+
+## CONSTRUCTION - 构建与测试 - 单元 2: unit-product - 用户批准
+
+**时间戳**: 2026-04-15T13:34:06Z
+**用户输入**: "继续"
+**AI响应**: 构建与测试指令已批准。单元 2 (Product Service) 全部 CONSTRUCTION 阶段完成。Operations 阶段当前为占位符（未来扩展）。
+**上下文**: CONSTRUCTION - Build & Test 完成，单元 2 unit-product 全部完成
+
+---
